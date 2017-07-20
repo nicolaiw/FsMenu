@@ -7,15 +7,16 @@ type MenuEntry =
 | Action of (unit -> unit)
 | Sub of (string * MenuEntry) list
 
-(* small DSL *)
+(* Small DSL *)
 let Menu = Sub
 
 let (+>) name entry : (string * MenuEntry) = (name,entry)
 
 let (=>) s f = (s, Action f)
 
+// TODO: make the helpers private
 
-(* emphasize the an entry *)
+(* Emphasizes an entry *)
 let emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries: string list) =
 
     let inititalCursorPos = Console.CursorTop
@@ -31,7 +32,7 @@ let emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries:
     Console.SetCursorPosition(0, inititalCursorPos);
 
 
-(* clears the current menu *)
+(* Clears the current menu *)
 let clear entryCount =
     let diff = Math.Abs (Console.CursorTop - entryCount)
     
