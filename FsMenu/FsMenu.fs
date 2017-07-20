@@ -73,7 +73,7 @@ let render menuEntry emphesizer =
                        handleUserInput currentEntry
 
                 | ConsoleKey.Enter ->
-                    (* either call the action or navigate dowwards *)
+                    (* Either call the action or navigate downwards *)
                     match snd subMenu.[currentEntry] with
                     | Action handler ->
                         handler()
