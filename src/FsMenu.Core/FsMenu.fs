@@ -9,12 +9,20 @@ type MenuEntry =
 
 (* Small DSL *)
 let Menu = Sub
-
 let (+>) name entry : (string * MenuEntry) = (name,entry)
-
 let (=>) s f = (s, Action f)
 
+
+
+
 // TODO: make the helpers private
+//       do some reorg
+//       use Fake (F# Make)
+//       create Nuget
+//       write some "readme"-stuff
+
+
+
 
 (* Emphasizes an entry *)
 let emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries: string list) =
@@ -32,6 +40,8 @@ let emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries:
     Console.SetCursorPosition(0, inititalCursorPos);
 
 
+
+
 (* Clears the current menu *)
 let clear entryCount =
     let diff = Math.Abs (Console.CursorTop - entryCount)
@@ -41,6 +51,9 @@ let clear entryCount =
         Console.Write(new string(' ', Console.WindowWidth))
 
     Console.SetCursorPosition(0, diff);
+
+
+
 
 (* Shows the menu and handles Input *)
 let render menuEntry emphesizer =
