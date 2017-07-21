@@ -5,6 +5,8 @@
 ### Usage
 
 ```fsharp
+printfn "Use Keys: UP-Arrow DOWN-Arrow ENTER BACK-SPACE\n"
+
 let test =
         Menu [
             "Item 1" => (fun () -> printf "selected Item 1")
