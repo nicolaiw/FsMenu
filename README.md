@@ -13,7 +13,7 @@ let test =
             "Item 2" +>
                Menu [ 
                    "Sub 1" +>
-                           Menu [
+                           Menu [		   // (unit -> unit)  
                                "Sub Sub 1" => (fun () -> printf "selected Sub Sub 1")
                                "Sub Sub 2" => (fun () -> printf "selected Sub Sub 2")
                                "Sub Sub 3" => (fun () -> printf "selected Sub Sub 3")]
