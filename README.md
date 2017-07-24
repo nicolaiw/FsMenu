@@ -24,7 +24,7 @@ let (+>) name entry : (string * MenuEntry) = (name,entry)
 let (=>) s f = (s, Action f)
 ```
 
-#### Example
+#### Example:
 
 ```fsharp
 printfn "Use Keys: UP-Arrow DOWN-Arrow ENTER BACK-SPACE\n"
