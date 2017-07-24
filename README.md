@@ -13,10 +13,10 @@ let Menu = Sub
 // Render sub menu
 let (+>) name entry : (string * MenuEntry) = (name,entry)
 
-// Execute action and Exit
-let (=>) s f = (s, Action f)
+// Execute action and exit
+let (=>) s f = (s, Action (fun () -> f(); Exit))
 
-// Execute action and Navigate back to the menu where you come from
+// Execute action and render the the menu again
 let (<+) s f = (s, Action (fun () -> f(); NavigateBack))
 ```
 

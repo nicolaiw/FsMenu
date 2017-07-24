@@ -21,7 +21,7 @@ let (=>) s f = (s, Action (fun () -> f(); Exit))
 let (<+) s f = (s, Action (fun () -> f(); NavigateBack))
 
 
-// TODO: make the helpers private
+// TODO: 
 //       do some reorg
 //       use Fake (F# Make)
 //       create Nuget
