@@ -44,7 +44,7 @@ let test =
     render test "<--"
 ```
 
-> Instead of `printf` you could 
+> Instead of `(fun () -> printf ...` you could pass any `unit -> unit` function.
 
 ### Will turn into
 
