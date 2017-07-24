@@ -4,7 +4,7 @@
 
 ### Usage
 
-The Domain type is defined as follows:
+#### The Domain type is defined as follows:
 
 ```fsharp
 type MenuEntry =
@@ -12,17 +12,19 @@ type MenuEntry =
 | Sub of (string * MenuEntry) list
 ```
 
-The DSL:
+#### The DSL:
 
+```fsharp
 let Menu = Sub
 
 // name:string -> entry:MenuEntry -> string * MenuEntry
 let (+>) name entry : (string * MenuEntry) = (name,entry)
 
 // s:'a -> f:(unit -> unit) -> 'a * MenuEntry
-let (=>) s f = (s, Action f) 
+let (=>) s f = (s, Action f)
+```
 
-# Example
+#### Example
 
 ```fsharp
 printfn "Use Keys: UP-Arrow DOWN-Arrow ENTER BACK-SPACE\n"
