@@ -2,16 +2,23 @@
 
 open System
 
+type AfterExecution =
+| NavigateBack
+| Exit
 
 type MenuEntry =
-| Action of (unit -> unit)
+| Action of (unit -> AfterExecution)
 | Sub of (string * MenuEntry) list
+
 
 (* Small DSL *)
 let Menu = Sub
-let (+>) name entry : (string * MenuEntry) = (name,entry)
-let (=>) s f = (s, Action f)
 
+let (+>) name entry : (string * MenuEntry) = (name,entry)
+
+let (=>) s f = (s, Action (fun () -> f(); Exit))
+
+let (<+) s f = (s, Action (fun () -> f(); NavigateBack))
 
 
 // TODO: make the helpers private
@@ -21,10 +28,8 @@ let (=>) s f = (s, Action f)
 //       write some "readme"-stuff
 
 
-
-
 (* Emphasizes an entry *)
-let emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries: string list) =
+let private emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries: string list) =
 
     let inititalCursorPos = Console.CursorTop
 
@@ -39,10 +44,8 @@ let emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (entries:
     Console.SetCursorPosition(0, inititalCursorPos);
 
 
-
-
 (* Clears the current menu *)
-let clear entryCount =
+let private clear entryCount =
     let diff = Math.Abs (Console.CursorTop - entryCount)
     
     for i=0 to entryCount do
@@ -50,8 +53,6 @@ let clear entryCount =
         Console.Write(new string(' ', Console.WindowWidth))
 
     Console.SetCursorPosition(0, diff);
-
-
 
 
 (* Shows the menu and handles Input *)
@@ -88,7 +89,17 @@ let render menuEntry emphesizer =
                     (* Either call the action or navigate downwards *)
                     match snd subMenu.[currentEntry] with
                     | Action handler ->
-                        handler()
+                        let cursorPosBeforeExecute = Console.CursorTop
+                        
+                        match handler() with
+                        | NavigateBack ->
+                            (* If the user does some prints we have to delete those lines as well *)
+                            let cursorDiff = Console.CursorTop-cursorPosBeforeExecute
+                            clear (subMenu.Length+cursorDiff)
+                            renderSubMenuRec callStack menuEntry emphasize
+                        
+                        | Exit -> ()
+                    
                     | Sub sub ->
                         clear subMenu.Length
                         renderSubMenuRec (menuEntry::callStack) (snd subMenu.[currentEntry]) 0
@@ -104,7 +115,8 @@ let render menuEntry emphesizer =
 
                 | _ -> handleUserInput currentEntry
                                                      
-            handleUserInput emphasize  
+            handleUserInput emphasize
+            
         | _ -> ()
 
     renderSubMenuRec [] menuEntry 0

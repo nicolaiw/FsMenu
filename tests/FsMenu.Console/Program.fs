@@ -2,6 +2,14 @@
 open Menu
 
 
+let testFunc() = 
+    printfn "selected Sub Sub 3"
+    printf "handle some input: "
+    let input = Console.ReadLine()
+    // Do some stuff with input
+    ()
+
+
 [<EntryPoint>]
 let main argv =
     
@@ -16,7 +24,7 @@ let main argv =
                            Menu [
                                "Sub Sub 1" => (fun () -> printf "selected Sub Sub 1")
                                "Sub Sub 2" => (fun () -> printf "selected Sub Sub 2")
-                               "Sub Sub 3" => (fun () -> printf "selected Sub Sub 3")]
+                               "Sub Sub 3" <+ testFunc]
                    "Sub 2" => (fun () -> printf "selected Sub 2") ]]
 
     render test "<--"
