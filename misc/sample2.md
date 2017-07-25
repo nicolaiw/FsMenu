@@ -74,3 +74,5 @@ let main argv =
     Console.ReadLine() |> ignore
     0
 ```
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample2.gif)
