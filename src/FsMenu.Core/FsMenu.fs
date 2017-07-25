@@ -4,6 +4,7 @@ open System
 
 type AfterExecution =
 | NavigateBack
+| Stay
 | Exit
 
 type MenuEntry =
@@ -22,6 +23,9 @@ let (=>) s f = (s, Action (fun () -> f(); Exit))
 
 // Execute action and render the previous menu
 let (<+) s f = (s, Action (fun () -> f(); NavigateBack))
+
+// Execute action and render the menu where you come frome
+let (<+=) s f = (s, Action (fun () -> f(); Stay))
 
 
 // TODO: 
@@ -106,7 +110,13 @@ let render menuEntry emphesizer =
                                 | hd::tail -> (hd,tail)
                             
                             renderSubMenuRec stack previousEntry emphasize
-                        
+
+                        | Stay ->
+                            (* If the user does some prints we have to delete those lines as well *)
+                            let cursorDiff = Console.CursorTop-cursorPosBeforeExecute
+                            clear (subMenu.Length+cursorDiff)
+                            renderSubMenuRec callStack menuEntry emphasize
+
                         | Exit -> ()
                     
                     | Sub sub ->

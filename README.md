@@ -18,6 +18,9 @@ let (=>) s f = (s, Action (fun () -> f(); Exit))
 
 // Execute action and render the previous menu
 let (<+) s f = (s, Action (fun () -> f(); NavigateBack))
+
+// Execute action and render the menu where you come frome
+let (<+=) s f = (s, Action (fun () -> f(); Stay))
 ```
 
 #### Example:
