@@ -33,10 +33,10 @@ let paketAddSubMenu =
         let setName() = printf "name: "
                         name <- Console.ReadLine()
 
-        let setForceMenu() =
+        let setForceMenu =
             yesNoMenu (fun () -> force <- "--force") (fun () -> force <- "")
 
-        let setVerboseMenu() =
+        let setVerboseMenu =
             yesNoMenu (fun () -> verbose <- "--verbose") (fun () -> verbose <- "")
 
         let runAddWithArgs() = 
@@ -51,8 +51,8 @@ let paketAddSubMenu =
         let men =
                 Menu [
                     "name   " <+= setName
-                    "force  " +>  setForceMenu()
-                    "verbose" +>  setVerboseMenu()
+                    "force  " +>  setForceMenu
+                    "verbose" +>  setVerboseMenu
                     "run_add" =>  runAddWithArgs]
         men
 
