@@ -14,10 +14,13 @@ type MenuEntry =
 (* Small DSL *)
 let Menu = Sub
 
+// Render sub menu
 let (+>) name entry : (string * MenuEntry) = (name,entry)
 
+// Execute action and exit
 let (=>) s f = (s, Action (fun () -> f(); Exit))
 
+// Execute action and render the previous menu
 let (<+) s f = (s, Action (fun () -> f(); NavigateBack))
 
 
@@ -96,7 +99,13 @@ let render menuEntry emphesizer =
                             (* If the user does some prints we have to delete those lines as well *)
                             let cursorDiff = Console.CursorTop-cursorPosBeforeExecute
                             clear (subMenu.Length+cursorDiff)
-                            renderSubMenuRec callStack menuEntry emphasize
+
+                            let (previousEntry, stack) =
+                                match callStack with
+                                | [] -> (menuEntry, callStack)
+                                | hd::tail -> (hd,tail)
+                            
+                            renderSubMenuRec stack previousEntry emphasize
                         
                         | Exit -> ()
                     
