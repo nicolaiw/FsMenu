@@ -60,6 +60,11 @@ printfn "Use Keys: UP-Arrow DOWN-Arrow ENTER BACK-SPACE\n"
 
 > Instead of `(fun () -> printf ...` you could pass any `unit -> unit` function.
 
+
 ### Will turn into
 
 ![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample.gif)
+
+### Another example
+
+[Here](https://github.com/nicolaiw/FsMenu/tree/master/misc)
