@@ -76,7 +76,7 @@ render test "<--"
 ### Build
 
 + On Windows run build.cmd
-+ On Linux run buld.sh
++ On Linux run build.sh
 
 ### TODO ( contributes are very welcome :D )
 + Add Fake build (F# Make) and CI (AppVeyor, Travis)
