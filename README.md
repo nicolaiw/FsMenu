@@ -72,4 +72,3 @@ render test "<--"
 ### TODO ( contributes are very welcome :D )
 + Add Fake build (F# Make) and CI (AppVeyor, Travis)
 + Create NuGet Package using Paket
-+ Nice to have: update the test project and README.md with the given sample without using the DSL to show its usefulness :) 
