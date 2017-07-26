@@ -72,3 +72,5 @@ render test "<--"
 ### TODO ( contributes are very welcome :D )
 + Add Fake build (F# Make) and CI (AppVeyor, Travis)
 + Create NuGet Package using Paket
++ Add release notes
++ Add are render function which will take a color (mybe just for the emphasizer and/or for the whole entry)
