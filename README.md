@@ -2,6 +2,10 @@
 
 > A very small DSL to create an interactive cli.
 
+# Nuget
+
+Inc.
+
 ### Usage
 
 #### The DSL:
@@ -69,8 +73,14 @@ render test "<--"
 
 [Here](https://github.com/nicolaiw/FsMenu/tree/master/misc)
 
+### Build
+
++ On Windows run build.cmd
++ On Linux run buld.sh
+
 ### TODO ( contributes are very welcome :D )
 + Add Fake build (F# Make) and CI (AppVeyor, Travis)
 + Create NuGet Package using Paket
 + Add release notes
 + Add are render function which will take a color (mybe just for the emphasizer and/or for the whole entry)
++ Clean build.fsx
