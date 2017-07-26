@@ -1,0 +1,2 @@
+source https://www.nuget.org/api/v2
+nuget System.ValueTuple 4.3.0 restriction: >= net452
