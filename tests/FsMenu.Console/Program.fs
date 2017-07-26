@@ -13,7 +13,39 @@ let testFunc() =
 [<EntryPoint>]
 let main argv =
     
+    (* 
+        The ugly way
+        don't use it
+    *)
+
+    let mutable yesOrNoUglyWay = ""
+
+    let uglyTest =
+                   Sub ([
+                          ("Item 1", MenuEntry.Action (fun () -> printf "selected Item 1"; Exit))
+                          ("Item 2", 
+                            Sub ([
+                                    ("Sub 1",
+                                        Sub ([
+                                                ("Sub Sub 1", MenuEntry.Action (fun () -> printf "selected Sub Sub 1"; Exit))
+                                                ("Sub Sub 2",
+                                                    Sub ([
+                                                            ("yes", Action (fun () -> yesOrNoUglyWay <- "--yes"; NavigateBack))
+                                                            ("no ", Action (fun () -> yesOrNoUglyWay <- "--no"; NavigateBack))
+                                                        ]))
+                                                ("Sub Sub 3", MenuEntry.Action (fun () -> testFunc(); NavigateBack))
+                                             ]))
+                                    ("Sub 2", MenuEntry.Action (fun () -> printf "selected Sub 2"; Exit))
+                                    ("Sub 3", MenuEntry.Action (fun () -> printf "exec some command with param %s" yesOrNoUglyWay; Exit))
+                                ]))
+                       ]) 
+
+
     printfn "Use Keys: UP-Arrow DOWN-Arrow ENTER BACK-SPACE\n"
+
+    (*
+        The same using a small DSL
+    *)
 
     let mutable yesOrNo = ""
 
