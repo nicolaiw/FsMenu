@@ -2,7 +2,7 @@
 
 > A very small DSL to create an interactive cli.
 
-## Build status
+### Build status
 
 **Master Branch**
 
@@ -71,11 +71,21 @@ render test "<--"
 > Instead of `(fun () -> printf ...` you could pass any `unit -> unit` function.
 
 
-### Will turn into
+#### Will turn into
 
 ![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample.gif)
 
-### Another example
+#### Want some color ? :)
+
+```fsharp
+renderColored test "<--" Color.Green
+```
+
+#### Here it is
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample3.gif)
+
+#### Another example
 
 [Here](https://github.com/nicolaiw/FsMenu/tree/master/misc)
 
@@ -86,5 +96,5 @@ render test "<--"
 
 ### TODO ( contributes are very welcome :D )
 + Create NuGet Package using Paket
-+ Add are render function which will take a color (mybe just for the emphasizer and/or for the whole entry)
++ Add are render function which will take a color without emphazizer to highlight the the current entry
 + Clean build.fsx
