@@ -56,10 +56,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <Content Include="paket.references" />
-    <Compile Include="Program.fs" />
     <Compile Include="..\..\src\FsMenu.Core\AssemblyInfo.fs">
       <Link>AssemblyInfo.fs</Link>
     </Compile>
+    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
