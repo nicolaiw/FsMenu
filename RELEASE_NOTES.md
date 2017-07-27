@@ -3,6 +3,6 @@
 * Use Fake (F# Make) for builds
 * Add appveyor build status
 
-### 0.0.2
+#### 0.0.2
 * Posibility to colorize the emphazizer
 * Rename namspaces and modules
