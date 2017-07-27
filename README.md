@@ -2,6 +2,12 @@
 
 > A very small DSL to create an interactive cli.
 
+## Build status
+
+**Master Branch**
+
+[![Build status](https://ci.appveyor.com/api/projects/status/tngsbj4u54o90fit/branch/master?svg=true)](https://ci.appveyor.com/project/Jallah/fsmenu/branch/master)
+
 ### Nuget
 
 Inc.
@@ -79,8 +85,6 @@ render test "<--"
 + On Linux run build.sh
 
 ### TODO ( contributes are very welcome :D )
-+ Add Fake build (F# Make) and CI (AppVeyor, Travis)
 + Create NuGet Package using Paket
-+ Add release notes
 + Add are render function which will take a color (mybe just for the emphasizer and/or for the whole entry)
 + Clean build.fsx
