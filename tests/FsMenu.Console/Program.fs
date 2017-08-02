@@ -68,7 +68,8 @@ let main argv =
                    
 
     //render test "<--"
-    renderColored test "<--" Color.Green
+    //renderColored test "<--" Color.Green
+    renderWithColoredEntry test Color.Cyan
     
 
     Console.ReadLine() |> ignore

@@ -42,20 +42,37 @@ module FsMenu.Core
         let inititalCursorPos = Console.CursorTop
     
         (* Clear the current emphasizer *)
-        Console.SetCursorPosition(entries.[oldIndex].Length, Console.CursorTop - (entries.Length-oldIndex))
-        Console.Write(new string(' ', emphasizer.Length + 1))
+        match emphasizer with
+        | e when e = String.Empty ->
+            Console.SetCursorPosition(0, Console.CursorTop - (entries.Length-oldIndex))
+            Console.Write(entries.[oldIndex])
+        | _ ->
+            Console.SetCursorPosition(entries.[oldIndex].Length, Console.CursorTop - (entries.Length-oldIndex))
+            Console.Write(emphasizer.[oldIndex])
+        
         (* Emphasise the new entry *)
         Console.SetCursorPosition(0, inititalCursorPos)
-        Console.SetCursorPosition(entries.[newIndex].Length, Console.CursorTop - (entries.Length-newIndex))
         
+        let currentForegroundColor = Console.ForegroundColor
+
         match color with
         | Color.None ->
                 Console.Write(sprintf " %s" emphasizer)
+        
         | c as consoleColor ->
-                let currentForegroundColor = Console.ForegroundColor
-                Console.ForegroundColor <- enum<ConsoleColor> (unbox<int32> c)
+
+             
+             Console.ForegroundColor <- enum<ConsoleColor> (unbox<int32> c)
+             
+             match emphasizer with
+             | e when e = String.Empty ->
+                Console.SetCursorPosition(0, Console.CursorTop - (entries.Length-newIndex))
+                Console.Write(sprintf "%s" entries.[newIndex])
+             | _ ->
+                Console.SetCursorPosition(entries.[newIndex].Length, Console.CursorTop - (entries.Length-newIndex))
                 Console.Write(sprintf " %s" emphasizer)
-                Console.ForegroundColor <- currentForegroundColor
+                
+        Console.ForegroundColor <- currentForegroundColor
        
         (* Reset the Cursor *)
         Console.SetCursorPosition(0, inititalCursorPos);
@@ -156,3 +173,6 @@ module FsMenu.Core
     
     let render menuEntry emphesizer =
         renderColored menuEntry emphesizer Color.None
+
+    let renderWithColoredEntry menuEntry color =
+        renderColored menuEntry System.String.Empty color

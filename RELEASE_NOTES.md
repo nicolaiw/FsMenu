@@ -5,4 +5,5 @@
 
 #### 0.0.2
 * Posibility to colorize the emphazizer
+* Posibility to colorize the entry
 * Rename namspaces and modules

@@ -85,6 +85,14 @@ renderColored test "<--" Color.Green
 
 ![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample3.gif)
 
+### It is also possible to emphazise the entry
+
+```fsharp
+renderWithColoredEntry test Color.Cyan
+```
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample4.gif)
+
 #### Another example
 
 [Here](https://github.com/nicolaiw/FsMenu/tree/master/misc)
@@ -96,5 +104,5 @@ renderColored test "<--" Color.Green
 
 ### TODO ( contributes are very welcome :D )
 + Create NuGet Package using Paket
-+ Add are render function which will take a color without emphazizer to highlight the the current entry
++ Add are render function which will take a color AND an emphazizer to highlight both
 + Clean build.fsx
