@@ -90,7 +90,7 @@ module FsMenu.Core
     
     
     (* Shows the menu and handles Input *)
-    let renderColored menuEntry emphesizer color =
+    let private renderColored menuEntry emphesizer color =
     
         (* All recursive stuff is hidden for the user of "render" *)
         let rec renderSubMenuRec callStack menuEntry emphasize = 
@@ -171,8 +171,12 @@ module FsMenu.Core
     
         renderSubMenuRec [] menuEntry 0
     
+
     let render menuEntry emphesizer =
         renderColored menuEntry emphesizer Color.None
+
+    let renderWithColoredEmphaziser menuEntry emphaziser color =
+        renderColored menuEntry emphaziser color
 
     let renderWithColoredEntry menuEntry color =
         renderColored menuEntry System.String.Empty color

@@ -7,3 +7,8 @@
 * Posibility to colorize the emphazizer
 * Posibility to colorize the entry
 * Rename namspaces and modules
+
+#### 0.3.0
+* Wrape renderColored with different functions
+* Rendering with a colored emphaziser can now be accomplished using renderWithColoredEmphaziser
+

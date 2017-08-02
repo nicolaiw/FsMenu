@@ -68,7 +68,7 @@ let main argv =
                    
 
     //render test "<--"
-    //renderColored test "<--" Color.Green
+    //renderWithColoredEmphaziser test "<--" Color.Green
     renderWithColoredEntry test Color.Cyan
     
 
