@@ -36,9 +36,34 @@ module FsMenu.Core
     //       write some "readme"-stuff
     
     
+    // TODO: sepearte functions for rendering an emphaziser and an entry
+    // Call both to colorize the line
+
+    type private Colorize =
+    | Emphasizer
+    | Entry
+    | Both
+
+    let colorizeEmphasizer (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
+        () // TODO: Implement
+
+    let colorizeEntry (oldIndex: int) (newIndex:int) (color: Color) (entries: string list) =
+        () // TODO: Implement
+
+    let colorizeLine (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
+        () // TODO: Implement
+
     (* Emphasizes an entry *)
-    let private emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list)  =
-    
+    let private emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
+
+        // TODO: Do somehtin with coloirze
+        // macht colorize with
+        // | Emphaziser -> colorizeEmphaziser ...
+        // | Entry -> ...
+        // .
+        // .
+        // .
+
         let inititalCursorPos = Console.CursorTop
     
         (* Clear the current emphasizer *)
@@ -102,7 +127,7 @@ module FsMenu.Core
                      printfn "%s" name;
                 
                 subMenu
-                |> List.map (fun e -> fst e)
+                |> List.map fst
                 |> emphasizeEntry 0 0 emphesizer color 
 
                 let rec handleUserInput currentEntry = 

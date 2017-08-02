@@ -106,5 +106,4 @@ renderWithColoredEntry test Color.Cyan
 + Create NuGet Package using Paket
 + Add are render function which will take a color AND an emphazizer to highlight both
 + Clean build.fsx
-+ The goal is too use the render funcion like `render test "<--" withColoredEmphaziser Color.Green` or something like that
-+ Maybe pass the emphaziseEntry function to the renderColored function
++ The goal is too use the render funcion like `render test "<--" <| withColoredEmphaziser Color.Green` or something like that
