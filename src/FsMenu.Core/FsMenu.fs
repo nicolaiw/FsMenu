@@ -33,11 +33,7 @@ module FsMenu.Core
     //       do some reorg
     //       use Fake (F# Make)
     //       create Nuget
-    //       write some "readme"-stuff
-    
-    
-    // TODO: sepearte functions for rendering an emphaziser and an entry
-    // Call both to colorize the line
+
 
     type private Colorize =
     | Emphasizer
@@ -45,7 +41,7 @@ module FsMenu.Core
     | Both
 
     (* Colorizes the emphasizer with a given color *)
-    let colorizeEmphasizer (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
+    let private colorizeEmphasizer (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
         
         let inititalCursorPos = Console.CursorTop
         
@@ -72,7 +68,7 @@ module FsMenu.Core
 
 
     (* Colorizes an entry *)
-    let colorizeEntry (oldIndex: int) (newIndex:int) (color: Color) (entries: string list) =
+    let private colorizeEntry (oldIndex: int) (newIndex:int) (color: Color) (entries: string list) =
         
         let inititalCursorPos = Console.CursorTop
 
@@ -99,7 +95,9 @@ module FsMenu.Core
         Console.SetCursorPosition(0, inititalCursorPos);
 
     (* Colorizes the whole line including the emphasizer *)
-    let colorizeLine (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
+    let private colorizeLine (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color) (entries: string list) =
+        
+        // TODO: explicite colorization instead of calling both functions
         colorizeEntry oldIndex newIndex color entries
         colorizeEmphasizer oldIndex newIndex emphasizer color entries
         
@@ -107,21 +105,11 @@ module FsMenu.Core
     (* Emphasizes an entry *)
     let private emphasizeEntry (oldIndex: int) (newIndex:int) (emphasizer: string) (color: Color)  (colorize: Colorize) (entries: string list) =
 
-        // TODO: Do somehtin with coloirze
-        // macht colorize with
-        // | Emphaziser -> colorizeEmphaziser ...
-        // | Entry -> ...
-        // .
-        // .
-        // .
-
         match colorize with
         | Emphasizer -> colorizeEmphasizer oldIndex newIndex emphasizer color entries
         | Entry -> colorizeEntry oldIndex newIndex color entries
         | Both -> colorizeLine oldIndex newIndex emphasizer color entries
 
-       
-    
     
     (* Clears the current menu *)
     let private clear entryCount =
@@ -228,42 +216,3 @@ module FsMenu.Core
 
     let renderWithColoredLine menuEntry emphesizer color =
         renderColored menuEntry emphesizer color Colorize.Both
-
-
-        // let inititalCursorPos = Console.CursorTop
-    
-        //(* Clear the current emphasizer *)
-        //match emphasizer with
-        //| e when e = String.Empty ->
-        //    Console.SetCursorPosition(0, Console.CursorTop - (entries.Length-oldIndex))
-        //    Console.Write(entries.[oldIndex])
-        //| _ ->
-        //    Console.SetCursorPosition(entries.[oldIndex].Length, Console.CursorTop - (entries.Length-oldIndex))
-        //    Console.Write(emphasizer.[oldIndex])
-        
-        //(* Emphasise the new entry *)
-        //Console.SetCursorPosition(0, inititalCursorPos)
-        
-        //let currentForegroundColor = Console.ForegroundColor
-
-        //match color with
-        //| Color.None ->
-        //        Console.Write(sprintf " %s" emphasizer)
-        
-        //| c as consoleColor ->
-
-             
-        //     Console.ForegroundColor <- enum<ConsoleColor> (unbox<int32> c)
-             
-        //     match emphasizer with
-        //     | e when e = String.Empty ->
-        //        Console.SetCursorPosition(0, Console.CursorTop - (entries.Length-newIndex))
-        //        Console.Write(sprintf "%s" entries.[newIndex])
-        //     | _ ->
-        //        Console.SetCursorPosition(entries.[newIndex].Length, Console.CursorTop - (entries.Length-newIndex))
-        //        Console.Write(sprintf " %s" emphasizer)
-                
-        //Console.ForegroundColor <- currentForegroundColor
-       
-        //(* Reset the Cursor *)
-        //Console.SetCursorPosition(0, inititalCursorPos);
