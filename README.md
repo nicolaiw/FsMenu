@@ -93,6 +93,14 @@ renderWithColoredEntry test Color.Cyan
 
 ![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample4.gif)
 
+### Or Both, the emphaziser and the entry
+
+```fsharp
+renderWithColoredLine test "<--" Color.Green
+```
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample5.gif)
+
 #### Another example
 
 [Here](https://github.com/nicolaiw/FsMenu/tree/master/misc)
