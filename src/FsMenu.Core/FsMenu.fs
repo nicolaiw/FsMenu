@@ -29,10 +29,8 @@ module FsMenu.Core
     let (<+=) s f = (s, Action (fun () -> f(); Stay))
     
     
-    // TODO: 
-    //       do some reorg
-    //       use Fake (F# Make)
-    //       create Nuget
+    // TODO:
+    // 1. create Nuget package
 
 
     type private Colorize =
