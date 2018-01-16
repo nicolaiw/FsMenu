@@ -111,6 +111,7 @@ renderWithColoredLine test "<--" Color.Green
 + On Linux run build.sh
 
 ### TODO ( contributes are very welcome :D )
++ Add support for multiselect list and single select list
 + Create NuGet Package using Paket
 + Clean build.fsx
 + Refactoring: The goal is too use the render funcion like `render test <| withColoredEmphaziser "<--" Color.Green` or something like that
