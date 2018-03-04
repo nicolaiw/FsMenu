@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="paket.references" />
+    <Compile Include="Colors.fs" />
     <Compile Include="FsMenu.fs" />
   </ItemGroup>
   <ItemGroup>

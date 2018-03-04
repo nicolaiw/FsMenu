@@ -1,5 +1,6 @@
 ﻿open System
-open Menu
+open FsMenu.Core
+open FsMenu.Colors
 
 
 let testFunc() = 
@@ -66,7 +67,10 @@ let main argv =
                    "Sub 3" => (fun () -> printf "exec some command with param %s" yesOrNo)]] 
                    
 
-    render test "<--"
+    //render test "<--"
+    //renderWithColoredEmphaziser test "<--" Color.Green
+    //renderWithColoredEntry test Color.Cyan
+    renderWithColoredLine test "<--" Color.Green
     
 
     Console.ReadLine() |> ignore

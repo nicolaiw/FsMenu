@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{D23FE473-F7D0-4C29-8BDD-18BCDE8491A6}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{982A1C3A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44DB43C9-DF99-4A51-89DA-3C42A1D57F5C}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yaml = appveyor.yaml
 		build.cmd = build.cmd
 		build.fsx = build.fsx
 		build.sh = build.sh
