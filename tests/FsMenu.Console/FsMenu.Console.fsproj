@@ -8,7 +8,7 @@
     <ProjectGuid>ea938605-9ecd-45e1-bfef-8f6b1f5aefa4</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>FsMenu</RootNamespace>
-    <AssemblyName>FsMenu</AssemblyName>
+    <AssemblyName>FsMenu.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
@@ -54,9 +54,11 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
     <None Include="App.config" />
     <Content Include="paket.references" />
+    <Compile Include="..\..\src\FsMenu.Core\AssemblyInfo.fs">
+      <Link>AssemblyInfo.fs</Link>
+    </Compile>
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

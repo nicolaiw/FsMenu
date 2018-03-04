@@ -5,13 +5,13 @@ open System.Reflection
 [<assembly: AssemblyTitleAttribute("FsMenu.Core")>]
 [<assembly: AssemblyProductAttribute("FsMenu")>]
 [<assembly: AssemblyDescriptionAttribute("Small DSL to create an interactive cli")>]
-[<assembly: AssemblyVersionAttribute("0.0.1")>]
-[<assembly: AssemblyFileVersionAttribute("0.0.1")>]
+[<assembly: AssemblyVersionAttribute("0.3.0")>]
+[<assembly: AssemblyFileVersionAttribute("0.3.0")>]
 do ()
 
 module internal AssemblyVersionInformation =
     let [<Literal>] AssemblyTitle = "FsMenu.Core"
     let [<Literal>] AssemblyProduct = "FsMenu"
     let [<Literal>] AssemblyDescription = "Small DSL to create an interactive cli"
-    let [<Literal>] AssemblyVersion = "0.0.1"
-    let [<Literal>] AssemblyFileVersion = "0.0.1"
+    let [<Literal>] AssemblyVersion = "0.3.0"
+    let [<Literal>] AssemblyFileVersion = "0.3.0"

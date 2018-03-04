@@ -1,7 +1,7 @@
 ```fsharp
 open System.Diagnostics
 open System
-open Menu
+open FsMenu.Core
 
 let paketPath = System.IO.Path.Combine("..", "paket.exe")
 

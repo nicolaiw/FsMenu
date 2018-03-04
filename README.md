@@ -2,6 +2,12 @@
 
 > A very small DSL to create an interactive cli.
 
+### Build status
+
+**Master Branch**
+
+[![Build status](https://ci.appveyor.com/api/projects/status/tngsbj4u54o90fit/branch/master?svg=true)](https://ci.appveyor.com/project/Jallah/fsmenu/branch/master)
+
 ### Nuget
 
 Inc.
@@ -65,11 +71,37 @@ render test "<--"
 > Instead of `(fun () -> printf ...` you could pass any `unit -> unit` function.
 
 
-### Will turn into
+#### Will turn into
 
 ![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample.gif)
 
-### Another example
+#### Want some color ? :)
+
+```fsharp
+renderWithColoredEmphaziser test "<--" Color.Green
+```
+
+#### Here it is
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample3.gif)
+
+### It is also possible to emphazise the entry
+
+```fsharp
+renderWithColoredEntry test Color.Cyan
+```
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample4.gif)
+
+### Or Both, the emphaziser and the entry
+
+```fsharp
+renderWithColoredLine test "<--" Color.Green
+```
+
+![](https://github.com/nicolaiw/FsMenu/blob/master/misc/sample5.gif)
+
+#### Another example
 
 [Here](https://github.com/nicolaiw/FsMenu/tree/master/misc)
 
@@ -79,8 +111,7 @@ render test "<--"
 + On Linux run build.sh
 
 ### TODO ( contributes are very welcome :D )
-+ Add Fake build (F# Make) and CI (AppVeyor, Travis)
++ Add support for multiselect list and single select list
 + Create NuGet Package using Paket
-+ Add release notes
-+ Add are render function which will take a color (mybe just for the emphasizer and/or for the whole entry)
 + Clean build.fsx
++ Refactoring: The goal is too use the render funcion like `render test <| withColoredEmphaziser "<--" Color.Green` or something like that
